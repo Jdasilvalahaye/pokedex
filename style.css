@@ -17,7 +17,7 @@ body {
 
 /* Le style de la carte globale recto/verso. On l'a mise en transparent et ensuite on set up individuellement chaque face */
 /* C'est le parent des deux faces // En réalité on supperpose 2 faces, on doit cacher le verso des deux faces*/
-/* IMPORTANT : S'intéresser aux positions relatives et absolue car j'ai pas compris pourquoi tant de changements quand je retire */
+/* IMPORTANT : S'intéresser aux positions relatives et absolue car j'ai pas compris pourquoi tant de changements quand je retire.. */
 #card {
   position: relative;
   top: -20px;

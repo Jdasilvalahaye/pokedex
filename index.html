@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- ------------------------ La carte totale (recto verso en gros) -->
+    <div id="card">
+      <!-- ------------------------ La partie RECTO de la carte avec plusieurs divs qui vont contenir les différents éléments -->
+      <div id="card-front">
+        <!-- Le contenant du numéro et du nom-->
+        <div id="header">
+          <div id="number"></div>
+          <div id="name"></div>
+        </div>
+        <!-- Le contenant de l'image -->
+        <div id="image-wrapper">
+          <img id="main-image" src="" alt="" />
+        </div>
+        <!-- Le contenant des types -->
+        <div id="type-container">
+          <div id="type1"></div>
+          <img src="" alt="" id="img_type1" />
+          <div id="type2"></div>
+          <img src="" alt="" id="img_type2" />
+        </div>
+        <div id="Pkm_description"></div>
+      </div>
+
+      <!-- ------------------------ La partie VERSO de la carte avec plusieurs divs qui vont contenir les différents éléments -->
+      <div id="card-back">
+        <h2 id="Stat_title">Statistiques :</h2>
+        <!-- Une div qui contient les libéllés des stats + les stats -->
+        <div id="stats_section">
+          <!-- Libéllé des stats -->
+          <div id="stats-description">
+            <div><p>PV :</p></div>
+            <div><p>Attaque :</p></div>
+            <div><p>Défense :</p></div>
+            <div><p>Attaque spéciale :</p></div>
+            <div><p>Défense spéciale :</p></div>
+            <div><p>Vitesse :</p></div>
+          </div>
+          <!-- Valeur des statistiques-->
+          <div id="stats-container">
+            <div id="stats_hp" class="stat_value"></div>
+            <div id="stats_attack"></div>
+            <div id="stats_defense"></div>
+            <div id="stats_special_attk"></div>
+            <div id="stats_special_def"></div>
+            <div id="stats_speed"></div>
+          </div>
+        </div>
+        <!-- Le contenant des sprites -->
+        <div id="sprite-wrapper">
+          <img id="front-sprite" src="" alt="" />
+          <img id="back-sprite" src="" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <!-- ------------------------Le bouton qui est en dehors de la carte (puisque la carte se retourne avec survol) -->
+    <div id="button">Génères un nouveau Pokémon !</div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

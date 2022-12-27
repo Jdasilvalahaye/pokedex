@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style de tout le body */
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  /* Pas d'image mais une couleur de fond */
+  background-image: linear-gradient(120deg, #f60b0b 0%, #3a3838 100%);
+}
+
+/* Le style de la carte globale recto/verso. On l'a mise en transparent et ensuite on set up individuellement chaque face */
+/* C'est le parent des deux faces // En réalité on supperpose 2 faces, on doit cacher le verso des deux faces*/
+/* IMPORTANT : S'intéresser aux positions relatives et absolue car j'ai pas compris pourquoi tant de changements quand je retire */
+#card {
+  position: relative;
+  top: -20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border-radius: 20px;
+  border: 5px solid black;
+  /* Ses dimensions */
+  height: 600px;
+  width: 400px;
+  max-height: 600px;
+  max-width: 400px;
+  /* Les param de l'effet de flip */
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transition: 1s;
+}
+
+/* L'effet de flip */
+#card:hover {
+  transform: rotateY(180deg);
+}
+
+/* ------------------------------------------------------------------------------Front face ---------------------------------------*/
+/* Le setup global de la face recto */
+/* Elle est en position absolue p/r à son parent (card) et prend 100% de la hauteur et largeur de son parent*/
+#card-front {
+  position: absolute;
+  display: flex;
+  /* flex direction pour dire que c'est centré en colonne (les éléments les uns sous les autres) */
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: white;
+  /* On cache le coté "verso" de cette face */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Le header qui contient les autres infos */
+#header {
+  position: absolute;
+  top: 0;
+  padding: 10px;
+  display: flex;
+  font-size: 20px;
+}
+#number {
+  margin-right: 15px;
+}
+
+/* Le conteneur de l'image */
+#image-wrapper {
+  border: 3px solid black;
+  margin-top: 50px;
+  width: 300px;
+}
+/* L'image en elle même */
+#main-image {
+  width: 100%;
+}
+
+#name {
+  text-transform: capitalize;
+}
+#type-container {
+  margin-top: 10px;
+  border: 2px solid black;
+  width: 95%;
+  height: 50px;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-areas: "t1 img1 t2 img2";
+}
+#type1 {
+  font-size: 20px;
+  grid-area: t1;
+}
+#img_type1 {
+  width: 20px;
+  grid-area: img1;
+}
+#type2 {
+  font-size: 20px;
+  grid-area: t2;
+}
+#img_type2 {
+  width: 20px;
+  grid-area: img2;
+}
+
+#Pkm_description {
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid black;
+}
+
+/* ------------------------------------------------------------------------------Back face ---------------------------------------*/
+#card-back {
+  position: absolute;
+  display: flex;
+  /* flex direction pour dire que c'est centré en colonne (les éléments les uns sous les autres) */
+  flex-direction: column;
+  align-items: center;
+  /* On retire le jcc pour positionner notre stats_sections en haut de la face */
+  /* justify-content: center; */
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: white;
+  /* On cache le coté "verso" de cette face */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* On doit lui dire de le retourner, sinon par défaut c'est cette face qu'on voit et pas la front */
+  transform: rotateY(180deg);
+}
+/* On a fait une section globale des stats + 2 sections (libellé et valeur) pour mettre les deux côtes à côtes */
+#Stat_title {
+  font-size: 25px;
+  position: absolute;
+  margin: 5px 20px;
+  left: 0;
+}
+#stats_section {
+  position: relative;
+  top: 35px;
+  width: 80%;
+  border: 5px solid black;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-areas: "description stat";
+}
+#stats-description {
+  grid-area: description;
+  padding: 5px;
+}
+#stats-container {
+  grid-area: stat;
+  padding: 5px;
+}
+/* Le conteneur des sprites */
+#sprite-wrapper {
+  width: 50%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: #f60b0b17;
+}
+#front-sprite {
+  width: 50%;
+}
+#back-sprite {
+  width: 50%;
+}
+
+/* ------------------------------------------------------------------------------Bouton ---------------------------------------*/
+#button {
+  position: absolute;
+  bottom: 40px;
+  background-color: #ff7a22;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  padding: 10px 30px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+/* Quand on survole le bouton */
+#button:hover {
+  transform: translateY(2px);
+  background-color: #ff8839;
+}
+/* Quand on click sur le bouton */
+#button:active {
+  transform: translateY(2px);
+  background-color: #ff7a22;
+}

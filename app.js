@@ -66,7 +66,7 @@ const changePokemon = async () => {
 
   // Front Side
   mainImage.src = responsePkm.image;
-  pokeNumber.textContent = `#${responsePkm.id}`;
+  pokeNumber.textContent = `N°${responsePkm.id}`;
   pokeName.textContent = responsePkm.name;
   pokeDescription.textContent = frenchDescription;
   pokeType1.textContent = pokeTypeName[0];
@@ -74,7 +74,7 @@ const changePokemon = async () => {
   // On doit vider les champs si pas de second type car sinon garde en mémoire celui du pkm précédent
   if (pokeTypeName.length < 2) {
     pokeType2.textContent = "";
-    imgPokeType2.src = "./imgReadMe/Invisible.png";
+    imgPokeType2.src = "./assetsImg/Invisible.png";
   } else if (pokeTypeName.length > 1) {
     pokeType2.textContent = pokeTypeName[1];
     imgPokeType2.src = pokeTypeImg[1];

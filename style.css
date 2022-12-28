@@ -26,7 +26,6 @@ body {
   justify-content: center;
   background-color: transparent;
   border-radius: 20px;
-  border: 5px solid black;
   /* Ses dimensions */
   height: 600px;
   width: 400px;
@@ -56,6 +55,7 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 20px;
+  border: 5px solid black;
   background-color: white;
   /* On cache le coté "verso" de cette face */
   -webkit-backface-visibility: hidden;
@@ -66,52 +66,56 @@ body {
 #header {
   position: absolute;
   top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 20px;
   padding: 10px;
+  margin: 5px;
   display: flex;
-  font-size: 20px;
+  font-size: 25px;
 }
 #number {
   margin-right: 15px;
 }
+#name {
+  text-transform: capitalize;
+}
+
+/* Le conteneur des types */
+#type-container {
+  margin-top: 30px;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+}
+#type1-container,
+#type2-container {
+  padding: 5px;
+  display: flex;
+}
+#img_type1,
+#img_type2 {
+  width: 20px;
+}
+#type1,
+#type2 {
+  padding: 5px;
+  font-size: 18px;
+}
 
 /* Le conteneur de l'image */
 #image-wrapper {
-  border: 3px solid black;
-  margin-top: 50px;
+  border: 3px double black;
+  border-radius: 10px;
   width: 300px;
+  background-image: url(./assetsImg/pkmImgBackground.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 110%;
 }
 /* L'image en elle même */
 #main-image {
   width: 100%;
-}
-
-#name {
-  text-transform: capitalize;
-}
-#type-container {
-  margin-top: 10px;
-  border: 2px solid black;
-  width: 95%;
-  height: 50px;
-  display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-areas: "t1 img1 t2 img2";
-}
-#type1 {
-  font-size: 20px;
-  grid-area: t1;
-}
-#img_type1 {
-  width: 20px;
-  grid-area: img1;
-}
-#type2 {
-  font-size: 20px;
-  grid-area: t2;
-}
-#img_type2 {
-  width: 20px;
-  grid-area: img2;
 }
 
 #Pkm_description {
@@ -131,6 +135,7 @@ body {
   /* justify-content: center; */
   width: 100%;
   height: 100%;
+  border: 5px solid black;
   border-radius: 20px;
   background-color: white;
   /* On cache le coté "verso" de cette face */

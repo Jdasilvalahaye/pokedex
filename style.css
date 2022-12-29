@@ -18,6 +18,7 @@ body {
 /* Le style de la carte globale recto/verso. On l'a mise en transparent et ensuite on set up individuellement chaque face */
 /* C'est le parent des deux faces // En réalité on supperpose 2 faces, on doit cacher le verso des deux faces*/
 /* IMPORTANT : S'intéresser aux positions relatives et absolue car j'ai pas compris pourquoi tant de changements quand je retire.. */
+/* Au final j'ai juste laissé card en relative et front et back en absolute. J'ai retiré absolute de mes autres div et les éléments de chaque face se positionnent par rapport à celui plus haut */
 #card {
   position: relative;
   top: -20px;
@@ -27,9 +28,9 @@ body {
   background-color: transparent;
   border-radius: 20px;
   /* Ses dimensions */
-  height: 600px;
+  height: 700px;
   width: 400px;
-  max-height: 600px;
+  max-height: 700px;
   max-width: 400px;
   /* Les param de l'effet de flip */
   transform-style: preserve-3d;
@@ -61,16 +62,18 @@ body {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-
-/* Le header qui contient les autres infos */
+/* Le header-wrapper qui contient les autres infos du header + des types*/
+#head-wrapper {
+  margin-top: 2px;
+  width: 99%;
+  border: solid 3px black;
+  border-radius: 20px;
+}
 #header {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   border-radius: 20px;
-  padding: 10px;
-  margin: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
   display: flex;
   font-size: 25px;
 }
@@ -80,11 +83,10 @@ body {
 #name {
   text-transform: capitalize;
 }
-
 /* Le conteneur des types */
 #type-container {
-  margin-top: 30px;
-  padding: 10px;
+  border-radius: 20px;
+  padding-left: 10px;
   width: 100%;
   display: flex;
 }
@@ -108,10 +110,12 @@ body {
   border: 3px double black;
   border-radius: 10px;
   width: 300px;
-  background-image: url(./assetsImg/pkmImgBackground.jpeg);
+  /* Ici le margin top se fait par rapport à l'élément du dessus, soit le head wrapper */
+  margin-top: 10px;
+  background-image: url(./assetsImg/pkmbg2.png);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 110%;
+  background-size: 150%;
 }
 /* L'image en elle même */
 #main-image {
@@ -189,7 +193,7 @@ body {
 /* ------------------------------------------------------------------------------Bouton ---------------------------------------*/
 #button {
   position: absolute;
-  bottom: 40px;
+  bottom: 28px;
   background-color: #ff7a22;
   border-radius: 5px;
   color: white;

@@ -26,6 +26,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: transparent;
+
   border-radius: 20px;
   /* Ses dimensions */
   height: 700px;
@@ -57,7 +58,10 @@ body {
   height: 100%;
   border-radius: 20px;
   border: 5px solid black;
-  background-color: white;
+  background-image: url(./assetsImg/globalBG1.jpg);
+  background-size: 101%;
+  background-position: center;
+  background-repeat: no-repeat;
   /* On cache le coté "verso" de cette face */
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -68,6 +72,7 @@ body {
   width: 99%;
   border: solid 3px black;
   border-radius: 20px;
+  background-color: rgba(255, 255, 0, 0.568);
 }
 #header {
   width: 100%;
@@ -111,7 +116,7 @@ body {
   border-radius: 10px;
   width: 300px;
   /* Ici le margin top se fait par rapport à l'élément du dessus, soit le head wrapper */
-  margin-top: 10px;
+  margin-top: 40px;
   background-image: url(./assetsImg/pkmbg2.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -124,7 +129,9 @@ body {
 
 #Pkm_description {
   margin: 10px;
+  margin-top: 50px;
   padding: 10px;
+  width: 90%;
   border: 2px solid black;
 }
 
@@ -134,14 +141,13 @@ body {
   display: flex;
   /* flex direction pour dire que c'est centré en colonne (les éléments les uns sous les autres) */
   flex-direction: column;
-  align-items: center;
-  /* On retire le jcc pour positionner notre stats_sections en haut de la face */
+  /* On retire le jcc et aic pour positionner nos div où on veut, sinon elles sont centrées par défaut*/
   /* justify-content: center; */
   width: 100%;
   height: 100%;
   border: 5px solid black;
   border-radius: 20px;
-  background-color: white;
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
   /* On cache le coté "verso" de cette face */
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -151,15 +157,16 @@ body {
 /* On a fait une section globale des stats + 2 sections (libellé et valeur) pour mettre les deux côtes à côtes */
 #Stat_title {
   font-size: 25px;
-  position: absolute;
   margin: 5px 20px;
   left: 0;
 }
 #stats_section {
-  position: relative;
   top: 35px;
   width: 80%;
   border: 5px solid black;
+  /* Comme on a retiré aic et jcc de l'élément parent, on va définir notre marge de gauche en fonction de la largeur de cette div */
+  /* Comme elle prend 80%, si je lui donne une marge left de 10%, ça centre l'éléménet (10% à gauche, 80% d'espace occupé, et donc 10% à droite */
+  margin-left: 10%;
   border-radius: 10px;
   display: grid;
   grid-template-columns: 80% 20%;
@@ -177,11 +184,13 @@ body {
 #sprite-wrapper {
   width: 50%;
   height: 20%;
+  margin-top: 300px;
+  margin-left: 25%;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 20px;
-  background-color: #f60b0b17;
+  background-color: transparent;
 }
 #front-sprite {
   width: 50%;
@@ -193,7 +202,7 @@ body {
 /* ------------------------------------------------------------------------------Bouton ---------------------------------------*/
 #button {
   position: absolute;
-  bottom: 28px;
+  bottom: 20px;
   background-color: #ff7a22;
   border-radius: 5px;
   color: white;
@@ -201,6 +210,12 @@ body {
   padding: 10px 30px;
   cursor: pointer;
   transition: all 0.2s ease;
+  background-image: linear-gradient(to right, #ff512f 0%, #f09819 51%, #ff512f 100%);
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  color: white;
+  box-shadow: 0 0 20px #eee;
 }
 /* Quand on survole le bouton */
 #button:hover {
